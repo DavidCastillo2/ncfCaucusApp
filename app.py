@@ -21,7 +21,7 @@ def hello():
 # Since we have to use a full webpage to execute this python script, the user can do webpage/background_process_test to run this webpage
 @app.route('/background_process_test')
 def background_process_test():
-    print("see, we called a method without change the webpage")
+    print("\nsee, we called a method without change the webpage\n")
     return ('nothing')
 
 
