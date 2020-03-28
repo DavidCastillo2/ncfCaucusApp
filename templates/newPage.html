@@ -1,24 +1,6 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<body>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="{{ url_for('static',filename='styles/theme.css') }}">
-        <title>Video</title>
-    </head>
-
-    <div class="container">
-        <div class="centerImage">
-            <div class="text">
-                <a href="{{ url_for('hello') }}">
-                    <h1>Hi this is a cool video :)</h1>
-                </a>
-            </div>
-        </div>
-        <br>
-        <div class="videoBox">
-            <iframe src="https://www.youtube.com/embed/pEt8CDOyHOU" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+﻿{% extends "layout.html" %}
+{% block content %}
+    <div class="videoBox">
+        <iframe src="https://www.youtube.com/embed/pEt8CDOyHOU" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-</body>
-</html>
+{% endblock %}
