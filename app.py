@@ -9,6 +9,15 @@ app = Flask(__name__)
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
+# jinja2 setup
+import jinja2 as ninja
+import os
+template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+jinja2_env = ninja.Environment(loader=ninja.FileSystemLoader(template_dir))
+
+# Make the WSGI interface available at the top level so wfastcgi can get it.
+wsgi_app = app.wsgi_app
+
 
 @app.route('/')
 def hello():

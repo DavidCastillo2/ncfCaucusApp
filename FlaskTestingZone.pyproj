@@ -32,11 +32,22 @@
   <ItemGroup>
     <Content Include="requirements.txt" />
     <Content Include="static\js\theme.js" />
+    <Content Include="static\styles\theme.css" />
     <Content Include="static\styles\homeStyle.css" />
     <Content Include="templates\home.html" />
+    <Content Include="templates\HTMLsnippits\navbar.html" />
     <Content Include="templates\newPage.html" />
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include="env1\">
+      <Id>env1</Id>
+      <Version>3.7</Version>
+      <Description>env1 (Python 3.7 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
     <Interpreter Include="env\">
       <Id>env</Id>
       <Version>3.7</Version>
@@ -48,11 +59,16 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="obj\" />
+    <Folder Include="obj\Any CPU\" />
+    <Folder Include="obj\Any CPU\Debug\" />
+    <Folder Include="obj\Debug\" />
     <Folder Include="static\js\" />
     <Folder Include="templates\" />
     <Folder Include="static\videos\" />
     <Folder Include="Static\styles\" />
     <Folder Include="static\" />
+    <Folder Include="templates\HTMLsnippits\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
