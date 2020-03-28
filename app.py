@@ -3,6 +3,12 @@ This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
 
+###########################################################################################################################################
+#                                                                                                                                         #
+#                                                           Importing                                                                     #
+#                                                                                                                                         #
+###########################################################################################################################################
+
 from flask import *
 app = Flask(__name__)
 
@@ -18,7 +24,26 @@ jinja2_env = ninja.Environment(loader=ninja.FileSystemLoader(template_dir))
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
+# Local Files/Dependancies
+from classFile import *
+import random as rand
 
+###########################################################################################################################################
+#                                                                                                                                         #
+#                                                        Objects inserted into HTML                                                       #
+#                                                                                                                                         #
+###########################################################################################################################################
+
+Candidates = []
+for i in range(1, 8):
+    imageURL = "people/person" + str(i)
+    tempPerson = Candidate(("Dave"+ str(i)), i+80, imageURL)
+
+###########################################################################################################################################
+#                                                                                                                                         #
+#                                                           Flask Routing                                                                 #
+#                                                                                                                                         #
+###########################################################################################################################################
 @app.route('/')
 def hello():
     """Renders a Home page."""
@@ -34,9 +59,28 @@ def background_process_test():
     return ('nothing')
 
 
-@app.route('/newPage')
-def newPage():
-    return render_template('newPage.html')
+@app.route('/Candidates')
+def Candidates():
+    global Candidates
+    Candidates = []
+    for i in range(1, 8):
+        imageURL = url_for('static', filename=('people/person' + str(i)) + ".jpg")
+        tempPerson = Candidate(("Dave"+ str(i)), rand.randint(0,100), imageURL)
+        tempPerson.id = i-1
+        Candidates.append(tempPerson)
+    return render_template('Candidates.html', Candidates=Candidates, title="Candidates List")
+
+
+@app.route('/Candidates/<candidate>')
+def viewCandidate(candidate):
+    global Candidates
+    for i in range(0, len(Candidates)):
+        if (Candidates[i].name == candidate):
+            can = Candidates[i]
+            break
+        else:
+            can = Candidates[i]
+    return render_template('Candidates.html', Candidates=can, title = can.name)
 
 
 # Main Run Code
