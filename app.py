@@ -104,8 +104,6 @@ def count(candidate):
             can = Candidates[i]
     return render_template('count.html', Candidates=can, title = can.name)
 
-
-
 ###########################################################################################################################################
 #                                                                                                                                         #
 #                                                           Create Flask Host                                                             #
