@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Cacus APP</h1>
-<p>
-    So this toolbar lets you choose a theme, and is like looks cool. I made it optimized for phone apps as well, make
-    your window really small and you'll see the scroll bar goes to the bottom since phones have more length compared to width.
-</p>
+    {% block title %}
+        <h1>Cacus APP</h1>
+        <p>
+            So this toolbar lets you choose a theme, and is like looks cool. I made it optimized for phone apps as well, make
+            your window really small and you'll see the scroll bar goes to the bottom since phones have more length compared to width.
+        </p>
+    {% endblock %}
 {% endblock %}

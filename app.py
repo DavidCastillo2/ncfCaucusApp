@@ -83,7 +83,35 @@ def viewCandidate(candidate):
     return render_template('Candidates.html', Candidates=can, title = can.name)
 
 
-# Main Run Code
+@app.route('/startCount')
+def StartCount():
+    global Candidates
+    Candidates = []
+    for i in range(1, 8):
+        imageURL = url_for('static', filename=('people/person' + str(i)) + ".jpg")
+        tempPerson = Candidate(("Dave"+ str(i)), rand.randint(0,100), imageURL)
+        tempPerson.id = i-1
+        Candidates.append(tempPerson)
+    return render_template('chooseCandidate.html', Candidates=Candidates, title = "Select Your Candidate")
+
+@app.route('/Count/<candidate>')
+def count(candidate):
+    for i in range(0, len(Candidates)):
+        if (Candidates[i].name == candidate):
+            can = Candidates[i]
+            break
+        else:
+            can = Candidates[i]
+    return render_template('count.html', Candidates=can, title = can.name)
+
+
+
+###########################################################################################################################################
+#                                                                                                                                         #
+#                                                           Create Flask Host                                                             #
+#                                                                                                                                         #
+###########################################################################################################################################
+
 if __name__ == '__main__':
     import os
     HOST = os.environ.get('SERVER_HOST', 'localhost')

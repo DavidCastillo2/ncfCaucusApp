@@ -32,6 +32,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="static\images\add.png" />
+    <Content Include="static\images\minus.png" />
     <Content Include="static\js\theme.js" />
     <Content Include="Static\people\person1.jpg" />
     <Content Include="Static\people\person2.jpg" />
@@ -45,8 +47,10 @@
     <Content Include="static\styles\homeStyle.css" />
     <Content Include="templates\home.html" />
     <Content Include="templates\HTMLsnippits\navbar.html" />
+    <Content Include="templates\chooseCandidate.html" />
     <Content Include="templates\layout.html" />
     <Content Include="templates\Candidates.html" />
+    <Content Include="templates\count.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env1\">
@@ -74,6 +78,7 @@
     <Folder Include="obj\Any CPU\Debug\" />
     <Folder Include="obj\Debug\" />
     <Folder Include="static\js\" />
+    <Folder Include="static\images\" />
     <Folder Include="Static\people\" />
     <Folder Include="templates\" />
     <Folder Include="static\videos\" />

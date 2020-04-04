@@ -1,0 +1,33 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/cardEffect.css') }}" />
+    {% block title %}
+        <h1> You are counting people voting for: </h1>
+    {% endblock %}
+
+    <div class="box" style="padding-bottom: 0%;">
+        <div class="card">
+            <div class="imgBx">
+                <img src="{{ Candidates.picture }}" alt="">
+            </div>
+            <div class="details">
+                <h2>{{ Candidates.name }}<br /> <span> {{ Candidates.age }} </span></h2>
+            </div>
+        </div>
+    </div>
+
+    <div style= " width: 70%; margin: 0 auto; display: flex; grid-template-rows: max-content; flex-direction: row;" id="ButtonGroup">
+        <div id="minusVote" style="width: 40%; height: 40%;">
+            <img style="width: inherit; height: inherit; object-fit: fill" src="{{ url_for('static', filename='images/minus.png') }}" />
+        </div>
+        <div id="currentVote" style="width: 40%; height: 40%; font-size: 400%; text-align: center;"> 
+            0 
+        </div>
+        <div id="addVote" style="width: 40%; height: 40%; object-fit: cover;">
+            <img style="width: inherit; height: inherit; object-fit: fill" src="{{ url_for('static', filename='images/add.png') }}" />
+        </div>
+    </div>
+
+{% endblock %}
+
