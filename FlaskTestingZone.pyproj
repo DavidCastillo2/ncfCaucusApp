@@ -27,7 +27,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Procfile.py" />
+    <Compile Include="Procfile.txt" />
     <Compile Include="app.py" />
     <Compile Include="classFile.py" />
   </ItemGroup>
