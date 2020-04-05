@@ -563,6 +563,7 @@
     <Compile Include="classFile.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="env1\Lib\site-packages\click-7.1.1.dist-info\INSTALLER" />
     <Content Include="env1\Lib\site-packages\click-7.1.1.dist-info\LICENSE.rst" />
     <Content Include="env1\Lib\site-packages\click-7.1.1.dist-info\METADATA" />
