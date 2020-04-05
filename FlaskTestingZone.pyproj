@@ -558,7 +558,7 @@
     <Compile Include="env1\Lib\site-packages\werkzeug\_internal.py" />
     <Compile Include="env1\Lib\site-packages\werkzeug\_reloader.py" />
     <Compile Include="env1\Lib\site-packages\werkzeug\__init__.py" />
-    <Compile Include="Procfile.txt" />
+    <Compile Include="Procfile" />
     <Compile Include="app.py" />
     <Compile Include="classFile.py" />
   </ItemGroup>
