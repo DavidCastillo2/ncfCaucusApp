@@ -16,8 +16,9 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>FlaskTestingZone</Name>
     <RootNamespace>FlaskTestingZone</RootNamespace>
-    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
     <TestFramework>Pytest</TestFramework>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,7 +69,6 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="env1\" />
     <Folder Include="obj\" />
     <Folder Include="obj\Any CPU\" />
     <Folder Include="obj\Any CPU\Debug\" />
