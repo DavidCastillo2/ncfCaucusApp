@@ -122,7 +122,8 @@ def wireframe():
 ###########################################################################################################################################
 
 if __name__ == '__main__':
-    # app.run(debug=True)
+    app.run(debug=True)
+    """
     import os
     HOST = os.environ.get('SERVER_HOST', 'localhost')
     try:
@@ -130,4 +131,5 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     app.run(HOST, PORT)
+    """
 
