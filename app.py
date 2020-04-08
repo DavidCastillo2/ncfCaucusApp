@@ -45,7 +45,7 @@ for i in range(1, 8):
 #                                                                                                                                         #
 ###########################################################################################################################################
 @app.route('/')
-def hello():
+def home():
     """Renders a Home page."""
     pageObject = render_template('home.html')
 
@@ -104,6 +104,17 @@ def count(candidate):
             can = Candidates[i]
     return render_template('count.html', Candidates=can, title = can.name)
 
+@app.route('/wireframe')
+def wireframe():
+    global Candidates
+    Candidates = []
+    for i in range(1, 8):
+        imageURL = url_for('static', filename=('people/person' + str(i)) + ".jpg")
+        tempPerson = Candidate(("Dave"+ str(i)), rand.randint(0,100), imageURL)
+        tempPerson.id = i-1
+        Candidates.append(tempPerson)
+    return render_template('wireframe.html', Candidates=Candidates)
+
 ###########################################################################################################################################
 #                                                                                                                                         #
 #                                                           Create Flask Host                                                             #
@@ -111,8 +122,7 @@ def count(candidate):
 ###########################################################################################################################################
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    """
+    # app.run(debug=True)
     import os
     HOST = os.environ.get('SERVER_HOST', 'localhost')
     try:
@@ -120,6 +130,4 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     app.run(HOST, PORT)
-    """
 
-    # Testing

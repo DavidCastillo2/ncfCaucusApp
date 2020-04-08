@@ -1,0 +1,120 @@
+﻿{% extends "layout2.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/wireframeTopBar.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/wireframe.css') }}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/wireframe.js') }}"></script>
+{% endblock %}
+
+{% block topBar %}
+<!-- TOP BAR START -->
+<div class="banner">
+    <div class="topbar">
+        <a href="{{ url_for('home') }}">
+            <div class="logo">
+                <img src="{{ url_for('static', filename="images/NewIcon.png") }}">
+            </div>
+        </a>
+        <div class="title">
+            <p> New Caucus </p>
+        </div>
+
+        <div class="ButtonGroup">
+            <a href="{{ url_for('home') }}" class="link">
+                <div>
+                    <div class="Button">
+                        Settings
+                    </div>
+                </div>
+            </a>
+            <a href="{{ url_for('home') }}" class="link">
+                <div>
+                    <div class="Button">
+                        Data
+                    </div>
+                </div>
+            </a>
+            <a href="{{ url_for('Candidates') }}" class="link">
+                <div>
+                    <div class="Button">
+                        Candidates
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- TOP BAR END -->
+{% endblock %}
+
+{% block content %}
+<!-- MAIN PAGE COTENT START -->
+
+<div class="Main">
+    <div class="leftBox">
+        <div class="caucusInfo">
+            <div class="info">
+                First, we need some information about the caucus you're running:
+                <div class="infoBox">
+                    Maximum number of reassignments:
+                    <input type="number" id="reassignments" name="reassignments" min="0" value="0" style="width:50px;" />
+                    <br />Total number of participants:
+                    <input type="number" id="Totalparticipants" name="Totalparticipants" min="0" value="0" style="width:50px;" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="candidateInfo">
+            <div class="info">
+                Next, let's get some information about the candidates:
+                <div class="titleBox"> New Candidate </div>
+                <div class="infoBox" id="problemChild">
+                    <br />Candidate Name:
+                    <input type="text" id="canName" name="canName" min="0" value="" style="width:200px;" />
+                    <br /> Canidate Bio:
+                    <input type="text" id="canBio" name="canBio" min="0" value="" style="width:100%; height:20%;" />
+                    <br /> Key issues (2-3 words):
+                    <input type="text" id="canIssues" name="canIssues" min="0" value="" style="width:100%; height:20%;" />
+                    <br />
+                    <div class="ButtonGroup" style="justify-content: center;">
+                        <div class="Button" style="font-size: 16px; width: 30%;">
+                            Add Photo
+                        </div>
+                        <div class="Button" style="font-size: 16px; width: 30%;">
+                            Add Candidate
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rightBox">
+        <div class="canTitle"> Candidate(s) Preview </div>
+        <div class="canPreview">
+            {% if Candidates is iterable() %}
+            {% for item in Candidates %}
+            <a href="{{ url_for('viewCandidate', candidate=item.name|e) }}">
+                <div class="canBox">
+                    <div class="canBoxImg">
+                        <img src="{{ item.picture }}" />
+                    </div>
+                    <div class="canInfo">
+                        <i><b>{{ item.name }}</b></i> <br />
+                        {{ item.age }}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+<a href="{{ url_for('home') }}">
+    <div class="submitButton"> Start Caucus </div>
+</a>
+
+<!-- MAIN PAGE CONTENT END-->
+{% endblock %}

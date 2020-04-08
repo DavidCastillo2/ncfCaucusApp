@@ -294,16 +294,3 @@ main {
         transition: 1s;
         transition-delay: 0.75s;
     }
-
-
-/*
-    This is the CSS for the Candidates Page
-*/
-.candidatesList {
-    display: flex;
-}
-
-.candidate {
-    
-}
-

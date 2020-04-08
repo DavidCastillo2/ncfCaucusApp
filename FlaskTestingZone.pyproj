@@ -39,7 +39,9 @@
     <Content Include="requirements.txt" />
     <Content Include="static\images\add.png" />
     <Content Include="static\images\minus.png" />
+    <Content Include="static\images\NewIcon.png" />
     <Content Include="static\js\theme.js" />
+    <Content Include="static\js\wireframe.js" />
     <Content Include="Static\people\person1.jpg" />
     <Content Include="Static\people\person2.jpg" />
     <Content Include="Static\people\person3.jpg" />
@@ -50,12 +52,16 @@
     <Content Include="static\styles\cardEffect.css" />
     <Content Include="static\styles\theme.css" />
     <Content Include="static\styles\homeStyle.css" />
+    <Content Include="Static\styles\wireframe.css" />
+    <Content Include="static\styles\wireframeTopBar.css" />
     <Content Include="templates\home.html" />
     <Content Include="templates\HTMLsnippits\navbar.html" />
     <Content Include="templates\chooseCandidate.html" />
     <Content Include="templates\layout.html" />
     <Content Include="templates\Candidates.html" />
     <Content Include="templates\count.html" />
+    <Content Include="templates\layout2.html" />
+    <Content Include="templates\wireframe.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
