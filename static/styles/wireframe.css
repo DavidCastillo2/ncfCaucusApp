@@ -76,15 +76,15 @@
 
 .canBoxImg {
     margin-left: 1rem;
-    width: 120px;
+    width: 20%;
     height: 80%;
-    object-fit: contain;
     border-radius: 50%;
     overflow: auto;
 }
     .canBoxImg img {
         height: 100%;
         width: 100%;
+        object-fit: cover;
     }
 
 .titleBox {
