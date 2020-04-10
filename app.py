@@ -5,11 +5,13 @@ It contains the definition of routes and views for the application.
 
 ###########################################################################################################################################
 #                                                                                                                                         #
-#                                                           Importing                                                                     #
+#                                                           App Setup                                                                     #
 #                                                                                                                                         #
 ###########################################################################################################################################
+import sqlite3
+import click
+from flask import Flask, url_for, render_template, g
 
-from flask import *
 app = Flask(__name__)
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
@@ -23,6 +25,14 @@ jinja2_env = ninja.Environment(loader=ninja.FileSystemLoader(template_dir))
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
+
+# SQLite database setup
+app.config.from_mapping(
+    SECRET_KEY="dev",
+    DATABASE=os.path.join(app.instance_path, "myData.sqlite"),
+)
+from db import init_app, get_db
+init_app(app)
 
 # Local Files/Dependancies
 from classFile import *
@@ -44,6 +54,8 @@ for i in range(1, 8):
 #                                                           Flask Routing                                                                 #
 #                                                                                                                                         #
 ###########################################################################################################################################
+from flask import Flask, redirect, request, g
+
 @app.route('/')
 def home():
     """Renders a Home page."""
@@ -55,7 +67,6 @@ def home():
 # Since we have to use a full webpage to execute this python script, the user can do webpage/background_process_test to run this webpage
 @app.route('/background_process_test')
 def background_process_test():
-    print("\nsee, we called a method without change the webpage\n")
     return ('nothing')
 
 
@@ -104,8 +115,28 @@ def count(candidate):
             can = Candidates[i]
     return render_template('count.html', Candidates=can, title = can.name)
 
-@app.route('/wireframe')
+@app.route('/wireframe', methods=("GET", "POST"))
 def wireframe():
+    if request.method == "POST":
+        name = request.form["name"]
+        bio = request.form["bio"]
+        issues = request.form["issues"]
+        error = None
+
+        if not name:
+            error = "Missing Information"
+
+        if error is not None:
+            flash(error)
+        else:
+            db = get_db()
+            db.execute (
+                "INSERT INTO candidates (name, bio, issues) VALUES (?, ?, ?)", (name, bio, issues),    
+            )
+            db.commit()
+            db.commit()
+            return redirect(url_for('wireframe'))
+
     global Candidates
     Candidates = []
     for i in range(1, 8):
@@ -122,8 +153,7 @@ def wireframe():
 ###########################################################################################################################################
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    '''
+    #app.run(debug=True)
     import os
     HOST = os.environ.get('SERVER_HOST', 'localhost')
     try:
@@ -131,4 +161,3 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     app.run(HOST, PORT)
-    '''

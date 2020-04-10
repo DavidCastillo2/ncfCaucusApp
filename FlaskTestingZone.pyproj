@@ -29,6 +29,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="db.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Procfile" />
     <Compile Include="app.py" />
     <Compile Include="classFile.py" />
@@ -37,6 +40,9 @@
     <Content Include=".gitignore" />
     <Content Include="runtime.txt" />
     <Content Include="requirements.txt" />
+    <Content Include="schema.sql">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="static\images\add.png" />
     <Content Include="static\images\minus.png" />
     <Content Include="static\images\NewIcon.png" />
@@ -75,6 +81,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="instance\" />
     <Folder Include="obj\" />
     <Folder Include="obj\Any CPU\" />
     <Folder Include="obj\Any CPU\Debug\" />
