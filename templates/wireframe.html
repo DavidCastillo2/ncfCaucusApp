@@ -73,11 +73,11 @@
                 <div class="infoBox" id="problemChild">
                     <form method="post">
                         <br />Candidate Name:
-                        <input type="text" id="canName" name="canName" min="0" value="{{ request.form['name'] }}" style="width:200px;" />
+                        <input type="text" id="name" name="name" min="0" value="{{ request.form['name'] }}" required style="width:200px;" />
                         <br /> Canidate Bio:
-                        <input type="text" id="canBio" name="canBio" min="0" value="{{ request.form['bio'] }}" style="width:100%; height:20%;" />
+                        <input type="text" id="bio" name="bio" min="0" value="{{ request.form['bio'] }}" style="width:100%; height:20%;" />
                         <br /> Key issues (2-3 words):
-                        <input type="text" id="canIssues" name="canIssues" min="0" value="{{ request.form['issues'] }}" style="width:100%; height:20%;" />
+                        <input type="text" id="issues" name="issues" min="0" value="{{ request.form['issues'] }}" style="width:100%; height:20%;" />
                         <br />
                         <div class="ButtonGroup" style="justify-content: center;">
                             <div class="Button" style="font-size: 16px; width: 30%;">
@@ -117,15 +117,7 @@
 <a href="{{ url_for('home') }}">
     <div class="submitButton"> Start Caucus </div>
 </a>
-<form method="post">
-    <label for="name">name</label>
-    <input name="name" id="name" value="{{ request.form['name'] }}" required>
-    <label for="bio">bio</label>
-    <textarea name="bio" id="bio">{{ request.form['bio'] }}</textarea>
-    <label for="issues">issues</label>
-    <textarea name="issues" id="issues">{{ request.form['issues'] }}</textarea>
-    <input type="submit" value="Save">
-</form>
+
 
 <!-- MAIN PAGE CONTENT END-->
 {% endblock %}

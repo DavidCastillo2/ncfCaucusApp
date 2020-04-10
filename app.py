@@ -118,6 +118,9 @@ def count(candidate):
 @app.route('/wireframe', methods=("GET", "POST"))
 def wireframe():
     if request.method == "POST":
+        print("\n\n\n USer info")
+        print(request.form["name"])
+        print("\n\n\n")
         name = request.form["name"]
         bio = request.form["bio"]
         issues = request.form["issues"]
