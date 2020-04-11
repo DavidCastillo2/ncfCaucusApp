@@ -60,6 +60,9 @@
     <Content Include="static\styles\homeStyle.css" />
     <Content Include="Static\styles\wireframe.css" />
     <Content Include="static\styles\wireframeTopBar.css" />
+    <Content Include="templates\addie.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="templates\home.html" />
     <Content Include="templates\HTMLsnippits\navbar.html" />
     <Content Include="templates\chooseCandidate.html" />

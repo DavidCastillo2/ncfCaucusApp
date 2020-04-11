@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>test</title>
+
+
+    <style>
+        body {
+            background-color: #CECECE;
+        }
+
+        h1 {
+            color: black;
+            font-size: 75px;
+            text-align: center;
+        }
+
+        p {
+            padding: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #06ECA7;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        li {
+            float: left;
+        }
+
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #0ABB86;
+            color: white;
+        }
+
+        .active {
+            background-color: #0ABB86;
+            color: white
+        }
+
+
+
+        input[type="text.largeForm"] {
+            padding: 20px 10px;
+            line-height: 28px;
+        }
+
+        input[type="submit"] {
+            background-color: #06ECA7;
+            border-radius: 5px;
+            border: none;
+            padding: 10px 25px;
+            color: #FFF;
+            text-shadow: 1px 1px 1px #06ECA7;
+            margin-left: 330px;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0ABB86
+            }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a href="default.asp">Home</a></li>
+        <li><a class="active" href="news.asp">Settings</a></li>
+        <li><a href="contact.asp">View Data</a></li>
+        <li><a href="about.asp">View Candidates</a></li>
+    </ul>
+
+    <div style="padding:20px;margin-top:30px;">
+
+        <form action="#">
+            <label for="cName">Candidate Name: </label>
+            <input type="text" id="cName" name="cName">
+            <br>
+            <label for="cImage">Candidate Image: </label>
+            <input type="file" name="cImage" accept="image/gif, image/jpeg, image/png" id="cImage">
+            <br>
+            <label for="cInfo">Candidate Info: </label>
+            <textarea name="cInfo" id="cInfo" cols="40" rows="5"></textarea>
+            <br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <p>
+
+        </p>
+
+
+    </div>
+
+</body>
+</html>

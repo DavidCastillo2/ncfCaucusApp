@@ -118,9 +118,6 @@ def count(candidate):
 @app.route('/wireframe', methods=("GET", "POST"))
 def wireframe():
     if request.method == "POST":
-        print("\n\n\n USer info")
-        print(request.form["name"])
-        print("\n\n\n")
         name = request.form["name"]
         bio = request.form["bio"]
         issues = request.form["issues"]
@@ -148,6 +145,29 @@ def wireframe():
         tempPerson.id = i-1
         Candidates.append(tempPerson)
     return render_template('wireframe.html', Candidates=Candidates)
+
+@app.route('/addie', methods=("GET","POST"))
+def addie():
+    if request.method == "POST":
+        name = request.form["cName"]
+        bio = request.form["cInfo"]
+        image = request.form["cImage"]
+        error = None
+
+        if not name:
+            error = "Missing Information"
+
+        if error is not None:
+            flash(error)
+        else:
+            db = get_db()
+            db.execute (
+                "INSERT INTO addie (name, bio, img) VALUES (?, ?, ?)", (name, bio, image),    
+            )
+            db.commit()
+            db.commit()
+            return redirect(url_for('addie'))
+    return render_template('addie.html')
 
 ###########################################################################################################################################
 #                                                                                                                                         #
