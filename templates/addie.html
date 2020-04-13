@@ -53,7 +53,27 @@
             color: white
         }
 
-
+        form {
+		margin-left: 8px;
+		margin-top: 30px;
+		padding: 1em 1em;
+		border: 3px solid #06ECA7; 
+		background:#fff;
+		width: 450px;
+		position: relative;
+		left: 50px;
+		}
+		
+	  .addnew {
+		background: #06ECA7;
+		color: white;
+		width: 468px;
+		margin-left: 8px;
+		font-size: 20px;
+		position: relative;
+		left: 50px;
+		top: 30px;
+	    }
 
         input[type="text.largeForm"] {
             padding: 20px 10px;
@@ -73,19 +93,45 @@
             input[type="submit"]:hover {
                 background-color: #0ABB86
             }
+        
+        .view {
+            background: #06ECA7;
+            color: white;
+            width: 468px;
+            margin-left: 8px;
+            position: absolute;
+            top: 80px;
+            left: 800px;
+            font-size: 20px;
+        }
+
+        .viewbox {
+            margin-left: 8px;
+            padding: 1em 1em;
+            border: 3px solid #06ECA7; 
+            background:#fff;
+            width: 450px;
+            height: 500px;
+            position: absolute;
+            top: 126px;
+            left: 800px;
+        }
+	
     </style>
 </head>
 <body>
 
     <ul>
-        <li><a href="default.asp">Home</a></li>
-        <li><a class="active" href="news.asp">Settings</a></li>
-        <li><a href="contact.asp">View Data</a></li>
-        <li><a href="about.asp">View Candidates</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a class="active" href="#">Settings</a></li>
+      <li><a href="/Data">View Data</a></li>
+      <li><a href="/Candidates">View Candidates</a></li>
     </ul>
 
     <div style="padding:20px;margin-top:30px;">
-
+        
+    <p class ="addnew">Add a New Candidate</p>
+        
         <form action="#">
             <label for="cName">Candidate Name: </label>
             <input type="text" id="cName" name="cName">
@@ -99,7 +145,11 @@
 
             <input type="submit" value="Submit">
         </form>
+        
+        <p class ="view">Candidate List</p>
 
+        <p class ="viewbox">there'll be candidates here maybe</p>
+        
         <p>
 
         </p>
