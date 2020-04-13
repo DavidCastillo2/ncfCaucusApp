@@ -1,161 +1,177 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-    <title>Candidate Settings</title>
+  <title>Settings</title>
 
 
-    <style>
-        body {
-            background-color: #CECECE;
-        }
+	<style>
+	body {background-color: #CCC;}
+	
+	h1   {color: black; font-size: 75px; text-align: center;}
+	
+	p {padding: 10px;}
+	
+	ul {list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #00D1B2; position: fixed; top: 0; width: 100%;}
+	
+	li {float: left;}
 
-        h1 {
-            color: black;
-            font-size: 75px;
-            text-align: center;
-        }
+	li a {display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;}
+	
+	li a:hover:not(.active) {background-color: #02B196; color: white;}
+	
+	.active {background-color: #02B196; color: white}
+	
+	.button {
+		background-color:#00D1B2;
+		border-radius:5px;
+		border:none;
+		padding:10px 25px;
+		color:#FFF;
+		text-shadow:1px 1px 1px #02B196;
+		font-size:25px;
+	}
+	.button:hover:not(.activebutton) {
+		background-color:#02B196
+	}
+	.activebutton {
+		background-color: #02B196; 
+		border-radius:5px;
+		border:none;
+		padding:10px 25px;
+		color:#FFF;
+		text-shadow:1px 1px 1px #02B196;
+		font-size:25px;
+	}
 
-        p {
-            padding: 10px;
-        }
+	.buttonStart {
+		background-color:#00D1B2;
+		border-radius:5px;
+		border:none;
+		padding:10px 25px;
+		color:#FFF;
+		text-shadow:1px 1px 1px #02B196;
+		font-size:25px;
+		position: absolute;
+		top: 750px;
 
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #00D1B2;
-            position: fixed;
-            top: 0;
-            width: 100%;
-        }
-
-        li {
-            float: left;
-        }
-
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover:not(.active) {
-            background-color: #02B196;
-            color: white;
-        }
-
-        .active {
-            background-color: #02B196;
-            color: white
-        }
-
-        form {
+	}
+	.buttonStart:hover:not(.activebutton) {
+		background-color:#02B196
+	}
+	
+	form {
 		margin-left: 8px;
-		margin-top: 30px;
 		padding: 1em 1em;
 		border: 3px solid #00D1B2; 
 		background:#fff;
 		width: 450px;
-		position: relative;
-		left: 50px;
+		position: absolute;
+		top: 143px;
+		left: 78px;
 		}
 		
-	  .addnew {
+	.addnew {
 		background: #00D1B2;
 		color: white;
 		width: 468px;
 		margin-left: 8px;
 		font-size: 20px;
-		position: relative;
-		left: 50px;
-		top: 30px;
-	    }
-
-        input[type="text.largeForm"] {
-            padding: 20px 10px;
-            line-height: 28px;
-        }
-
-        input[type="submit"] {
-            background-color: #00D1B2;
-            border-radius: 5px;
-            border: none;
-            padding: 10px 25px;
-            color: #FFF;
-            text-shadow: 1px 1px 1px #02B196;
-            margin-left: 330px;
-        }
-
-            input[type="submit"]:hover {
-                background-color: #02B196
-            }
-        
-        .view {
-            background: #00D1B2;
-            color: white;
-            width: 468px;
-            margin-left: 8px;
-            position: absolute;
-            top: 80px;
-            left: 1100px;
-            font-size: 20px;
-        }
-
-        .viewbox {
-            margin-left: 8px;
-            padding: 1em 1em;
-            border: 3px solid #00D1B2; 
-            background:#fff;
-            width: 450px;
-            height: 500px;
-            position: absolute;
-            top: 126px;
-            left: 1100px;
-        }
+		position: absolute;
+		top: 80px;
+		left: 78px;
+	}
 	
-    </style>
+	input[type="text.largeForm"] { padding: 20px 10px; line-height: 28px; }
+	
+	input[type="submit"] {
+		background-color:#00D1B2;
+		border-radius:5px;
+		border:none;
+		padding:10px 25px;
+		color:#FFF;
+		text-shadow:1px 1px 1px #02B196;
+	}
+	input[type="submit"]:hover {
+		background-color:#02B196
+	}
+		
+	.view {
+		background: #00D1B2;
+		color: white;
+		width: 468px;
+		margin-left: 8px;
+		position: absolute;
+		top: 80px;
+		left: 1100px;
+		font-size: 20px;
+	}
+	
+	.viewbox {
+		margin-left: 8px;
+		padding: 1em 1em;
+		border: 3px solid #00D1B2; 
+		background:#fff;
+		width: 450px;
+		height: 500px;
+		position: absolute;
+		top: 126px;
+		left: 1100px;
+	}
+	
+	.remove {
+		background: #00D1B2;
+		color: white;
+		width: 468px;
+		margin-left: 8px;
+		font-size: 20px;
+		position: absolute;
+		top: 360px;
+		left: 78px;
+	}
+	
+	
+	</style>
 </head>
 <body>
 
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a class="active" href="#">Settings</a></li>
-      <li><a href="/Data">View Data</a></li>
-      <li><a href="/Candidates">View Candidates</a></li>
-    </ul>
+<button type="button" class="button" onclick="window.location.href = '/';">Home</button>
+<button type="button" class="activebutton" onclick="window.location.href = '#';">Settings</button>
+<button type="button" class="button" onclick="window.location.href = '/Candidates';">Candidates</button>
+<button type="button" class="button" onclick="window.location.href = '/Data';">Data</button>
 
-    <div style="padding:20px;margin-top:30px;">
-        
-    <p class ="addnew">Add a New Candidate</p>
-        
-        <form action="#">
-            <label for="cName">Candidate Name: </label>
-            <input type="text" id="cName" name="cName">
-            <br>
-            <label for="cImage">Candidate Image: </label>
-            <input type="file" name="cImage" accept="image/gif, image/jpeg, image/png" id="cImage">
-            <br>
-            <label for="cInfo">Candidate Info: </label>
-            <textarea name="cInfo" id="cInfo" cols="40" rows="5"></textarea>
-            <br><br>
+<div style="padding:20px;margin-top:30px;">
 
-            <input type="submit" value="Submit">
-        </form>
-        
-        <p class ="view">Candidate List</p>
+<p class ="addnew">Add a New Candidate</p>
 
-        <p class ="viewbox">there'll be candidates here maybe</p>
-        
-        <p>
-
-        </p>
+<form action="#">
+  <label for="cName">Candidate Name: </label>
+  <input type="text" id="cName" name="cName">
+  <br>
+  <label for="cImage">Candidate Image: </label>
+  <input type="file" name="filename" accept="image/gif, image/jpeg, image/png" id="cImage">
+  <br>
+  <label for="cInfo">Candidate Info: </label>
+  <textarea name="cInfo" id="cInfo" cols="40" rows="5"></textarea>
+  <br>
+  <input type="submit" value="Submit" style="margin-left:330px;">
+</form>
 
 
-    </div>
+<p class ="view">Candidate List</p>
+<p class ="viewbox">there'll be candidates here maybe</p>
+
+<p class ="remove">Remove Candidate</p>
+<form action="#" style="position: absolute; top: 420px; left: 78px;">
+  <label for="cName">Candidate Name: </label>
+  <input type="text" id="cRemove" name="cRemove">
+  <input type="submit" value="Remove" style="margin-left:330px;">
+</form>
+
+
+<button type="button" class="buttonStart" onclick="alert('Starting Caucus...')">Start Caucus</button>
+
+
+</div>
 
 </body>
 </html>
